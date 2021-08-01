@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/profile">
+
+    <fragment
+        android:id="@+id/global_feed"
+        android:name="com.darkabhi.navigationdialog.fragments.primary.FirstFragment"
+        android:label="Feed"
+        tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.darkabhi.navigationdialog.fragments.primary.SecondFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_second">
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.darkabhi.navigationdialog.fragments.primary.ThirdFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_third">
+
+        <action
+            android:id="@+id/action_profile_to_firstSheet"
+            app:destination="@id/firstSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/firstSheet"
+        android:name="com.darkabhi.navigationdialog.fragments.sheets.FirstBottomSheetDialog"
+        android:label="PredefinedHabitsFragment"
+        tools:layout="@layout/first_sheet">
+        <action
+            android:id="@+id/action_firstSheet_to_secondSheet"
+            app:destination="@id/secondSheet" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/secondSheet"
+        android:name="com.darkabhi.navigationdialog.fragments.sheets.SecondBottomSheetDialog"
+        android:label="AddCustomHabitBottomSheet"
+        tools:layout="@layout/second_sheet" />
+
+
+</navigation>
